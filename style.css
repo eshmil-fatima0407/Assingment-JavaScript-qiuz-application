@@ -1,0 +1,180 @@
+/* Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark {
+  background: #121212;
+  color: white;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.theme-toggle button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #ffb400;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Shared Card Styles */
+.login-card,
+.quiz-card {
+  background: #fff;
+  color: #222;
+  padding: 2rem 1.5rem;
+  margin: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+body.dark .login-card,
+body.dark .quiz-card {
+  background: #333;
+  color: white;
+}
+
+/* Login Inputs */
+.login-card input {
+  width: 100%;
+  padding: 0.7rem;
+  margin: 0.5rem 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Auth Buttons */
+.auth-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.auth-buttons button {
+  flex: 1;
+  padding: 0.6rem;
+  font-weight: bold;
+  background: #ffb400;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Quiz Options */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 1rem 0;
+}
+
+.option-btn {
+  padding: 0.8rem;
+  background: #444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.option-btn:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
+/* Next Button */
+#nextBtn {
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+  background: #ffb400;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Popup */
+.popup {
+  position: fixed;
+  top: 10%;
+  background: #333;
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 999;
+  animation: fadeInOut 1.5s ease-in-out;
+}
+
+body.light .popup {
+  background: #222;
+  color: #fff;
+}
+
+body.dark .popup {
+  background: #fff;
+  color: #000;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+/* Responsive Fix */
+@media (max-width: 500px) {
+  .login-card,
+  .quiz-card {
+    padding: 1.5rem 1rem;
+    width: 90%;
+  }
+
+  .theme-toggle {
+    right: 10px;
+    top: 10px;
+  }
+
+  .popup {
+    width: 90%;
+    text-align: center;
+    left: 5%;
+  }
+}
